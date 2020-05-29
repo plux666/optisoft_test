@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.app {
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+.container-main {
+	position: absolute;
+	left: 50%;
+	top: 50px;
+	transform: translate(-50%)
+}
+.drop-box-container {
+	width: 400px;
+	height: 300px;
+	border: solid black;
+  text-align: center;
+}
+.drop-box-inner {
+	height: 100%;
+	width: 100%;
+}
+.list {
+	width: 400px;
+	border: solid black;
+}
+.use-row-small {
+  position: relative;
+  cursor: pointer;
+	height: 50px;
+	width: 100%;
+	border-bottom: solid;
+}
+.delete-icon {
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+.use-row-small h3 {
+  margin: 0px;
+  padding: 10px;
+  margin-left: 10px;
+}
+.use-row-small p {
+	text-align: center;
+	font-size: 24px;
+	margin: 10px;
+	cursor: pointer;
+}
+.use-row-open {
+  position: relative;
+  background-color: #eceeef;
+  padding-bottom: 5px;
+  border-bottom: solid black 2px;
+}
+.use-row-open h3 {
+  cursor: pointer;
+  margin: 0px;
+  padding: 10px;
+  margin-left: 10px;
+}
+.root {
+  margin-right: 5px;
+  font-size: 18px !important;
+  border: dashed #919191 1px !important;
+}
+.comment {
+  padding-left: 15px;
+  background-color: #eceeef;
+  position: relative;
+}
+.comment .comment {
+  background-color: #dee1e3;
+}
+.comment .comment .comment {
+  background-color: #dee1e3;
+}
+.comment h4 {
+  padding: 5px;
+  padding-left: 10px;
+  margin: 0px;
+}
+.comment p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+  padding-left: 20px;
+  border-left: solid #919191 1px;
+  border-bottom: solid #919191 1px;
+}
