@@ -5,8 +5,7 @@ import UserRow from './user-row.js'
 export default function MainList(props) {
 
 	function mapUsers() {
-		let names = props.users.sort();
-		return names.map(name => {
+		return props.users.map(name => {
 			return(
 				<UserRow
 					key={name}

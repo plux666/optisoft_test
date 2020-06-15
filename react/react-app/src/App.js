@@ -43,6 +43,10 @@ class App extends React.Component {
         await findIn(v)
       }
 
+      users = users.sort((a,b) => {
+        return a.localeCompare(b, 'en')
+      });
+
       this.setState({
         stage: 2,
         fileName: fileName,
