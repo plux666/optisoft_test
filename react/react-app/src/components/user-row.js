@@ -20,7 +20,7 @@ export default function UserRow(props) {
 
 	if (!show) {
 		return(
-			<div className='use-row-small' onClick={() => {toggleShow(true)}}>
+			<div className='use-row-small'>
 				<i onClick={(e) => {e.stopPropagation(); props.delete(props.user)}}
 					className="material-icons delete-icon">delete</i>
 				<h3>{props.user}</h3>

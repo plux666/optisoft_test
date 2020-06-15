@@ -62,7 +62,7 @@ code {
 }
 .use-row-open {
   position: relative;
-  background-color: #eceeef;
+  background-color: #f9f9f9;
   padding-bottom: 5px;
   border-bottom: solid black 2px;
 }
@@ -98,6 +98,7 @@ code {
   margin-bottom: 5px;
   padding: 5px;
   padding-left: 20px;
-  border-left: solid #919191 1px;
-  border-bottom: solid #919191 1px;
+  border: solid 0px;
+  border-radius: 5px;
+  background-color: #E1ECF3;
 }

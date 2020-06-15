@@ -11,29 +11,42 @@ class App extends React.Component {
       stage: 1,
       error: false
     }
-
+    this.fileHandler = this.fileHandler.bind(this)
     this.dropBoxRef = React.createRef()
   }
 
-  fileHandler = (file, fileName) => {
+  async fileHandler(file, fileName) {
     let data;
-    let parsedData = {};
+    let users = [];
+
+    async function findIn(comment) {
+      if (comment.replies) {
+        for (let repl of comment.replies) {
+          if (!users.includes(repl.user)) {
+            users.push(repl.user)
+          }
+          if (repl.replies) {
+            await findIn(repl)
+          }
+        }
+      }
+    }
 
     try {
       data = JSON.parse(file)
-      data.forEach(v => {
-        if (parsedData[v.user]) {
-          parsedData[v.user].push({comment: v.comment, replies: v.replies})
-        } else {
-          parsedData[v.user] = []
-          parsedData[v.user].push({comment: v.comment, replies: v.replies})
+      users.push(data.user)
+
+      for (let v of data.replies) {
+        if (!users.includes(v.user)) {
+          users.push(v.user)
         }
-      })
+        await findIn(v)
+      }
 
       this.setState({
         stage: 2,
-        discData: parsedData,
         fileName: fileName,
+        users: users,
         error: false
       })
 
@@ -44,10 +57,18 @@ class App extends React.Component {
   }
 
   deleteUser = (userName) => {
-    let state = Object.assign({}, this.state.discData);
+    let state = Array.from(this.state.users);
 
-    delete state[userName]
-    this.setState({discData: state})
+    let index = state.findIndex(v => {
+      if (v === userName) {
+        return true
+      } else {
+        return false
+      }
+    })
+
+    state.splice(index, 1)
+    this.setState({users: state})
   }
 
   render() {
@@ -68,7 +89,7 @@ class App extends React.Component {
               <h2>{this.state.fileName}</h2>
               <MainList
                 delete={this.deleteUser}
-                users={this.state.discData}/>
+                users={this.state.users}/>
             </div>
           </div>
       )
